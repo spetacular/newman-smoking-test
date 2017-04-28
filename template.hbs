@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smoke Test Report</title>
+</head>
+<body>
+  <div class="container">
+      {{#if summary.failures}}<h1 style="color:red;">SomeThing Is Wrong! Check The Following Contents and Attachments To Find Out!</h1><hr/>{{/if}}
+    <h3>Smoke Test Report</h3>  
+    
+    {{#with summary}}    
+        <p>Collection:   {{collection.name}}</p>
+        <p>Desc:     {{collection.description}}</p>
+        
+    {{/with}}
+    <p>Exec At:  {{timestamp}}</p>
+    <p>Version:  Newman v{{version}}</p>
+
+    {{#with summary}}
+        {{#with stats}}
+        <table style="margin-top: 10px;border-collapse: collapse; border: 1px solid #aaa;width: 50%;"><tbody>
+            <tr><th style="vertical-align: baseline;padding: 5px 15px 5px 6px;background-color: #d5d5d5;border: 1px solid #aaa;text-align: left;">Item</th><th style="vertical-align: baseline;padding: 5px 15px 5px 6px;background-color: #d5d5d5;border: 1px solid #aaa;text-align: left;">Total</th><th style="vertical-align: baseline;padding: 5px 15px 5px 6px;background-color: #d5d5d5;border: 1px solid #aaa;text-align: left;">Failed</th></tr>
+            
+            <tr><td style="vertical-align: text-top;padding: 6px 15px 6px 6px;background-color: #efefef;border: 1px solid #aaa;">Iterations</td><td style="vertical-align: text-top;padding: 6px 15px 6px 6px;background-color: #efefef;border: 1px solid #aaa;">{{iterations.total}}</td><td style="vertical-align: text-top;padding: 6px 15px 6px 6px;background-color: #efefef;border: 1px solid #aaa;">{{iterations.failed}}</td></tr>
+            <tr><td style="vertical-align: text-top;padding: 6px 15px 6px 6px;background-color: #efefef;border: 1px solid #aaa;">Requests</td><td style="vertical-align: text-top;padding: 6px 15px 6px 6px;background-color: #efefef;border: 1px solid #aaa;">{{requests.total}}</td><td style="vertical-align: text-top;padding: 6px 15px 6px 6px;background-color: #efefef;border: 1px solid #aaa;">{{requests.failed}}</td></tr>
+            <tr><td style="vertical-align: text-top;padding: 6px 15px 6px 6px;background-color: #efefef;border: 1px solid #aaa;">Prerequest Scripts</td><td style="vertical-align: text-top;padding: 6px 15px 6px 6px;background-color: #efefef;border: 1px solid #aaa;">{{prerequestScripts.total}}</td><td style="vertical-align: text-top;padding: 6px 15px 6px 6px;background-color: #efefef;border: 1px solid #aaa;">{{prerequestScripts.failed}}</td></tr>
+            <tr><td style="vertical-align: text-top;padding: 6px 15px 6px 6px;background-color: #efefef;border: 1px solid #aaa;">Test Scripts</td><td style="vertical-align: text-top;padding: 6px 15px 6px 6px;background-color: #efefef;border: 1px solid #aaa;">{{testScripts.total}}</td><td style="vertical-align: text-top;padding: 6px 15px 6px 6px;background-color: #efefef;border: 1px solid #aaa;">{{testScripts.failed}}</td></tr>
+            <tr><td style="vertical-align: text-top;padding: 6px 15px 6px 6px;background-color: #efefef;border: 1px solid #aaa;">Assertions</td><td style="vertical-align: text-top;padding: 6px 15px 6px 6px;background-color: #efefef;border: 1px solid #aaa;">{{assertions.total}}</td><td style="vertical-align: text-top;padding: 6px 15px 6px 6px;background-color: #efefef;border: 1px solid #aaa;"><span style="color:red;">{{assertions.failed}}</span></td></tr>
+  
+        </tbody></table>
+        {{/with}}
+        <br/>
+        <table style="margin-top: 10px;border-collapse: collapse; border: 1px solid #aaa;width: 50%;"><tbody>
+            <tr><th style="vertical-align: baseline;padding: 5px 15px 5px 6px;background-color: #d5d5d5;border: 1px solid #aaa;text-align: left;">Stats</th><th style="vertical-align: baseline;padding: 5px 15px 5px 6px;background-color: #d5d5d5;border: 1px solid #aaa;text-align: left;">Value</th></tr>
+            <tr><td style="vertical-align: text-top;padding: 6px 15px 6px 6px;background-color: #efefef;border: 1px solid #aaa;">Total run duration</td><td style="vertical-align: text-top;padding: 6px 15px 6px 6px;background-color: #efefef;border: 1px solid #aaa;">{{duration}}</td></tr>
+            <tr><td style="vertical-align: text-top;padding: 6px 15px 6px 6px;background-color: #efefef;border: 1px solid #aaa;">Total data received</td><td style="vertical-align: text-top;padding: 6px 15px 6px 6px;background-color: #efefef;border: 1px solid #aaa;">{{responseTotal}} (approx)</td></tr>
+            <tr><td style="vertical-align: text-top;padding: 6px 15px 6px 6px;background-color: #efefef;border: 1px solid #aaa;">Average response time</td><td style="vertical-align: text-top;padding: 6px 15px 6px 6px;background-color: #efefef;border: 1px solid #aaa;">{{responseAverage}}</td></tr>
+            <tr><td style="vertical-align: text-top;padding: 6px 15px 6px 6px;background-color: #efefef;border: 1px solid #aaa;"><strong>Total Failures</strong></td><td style="vertical-align: text-top;padding: 6px 15px 6px 6px;background-color: #efefef;border: 1px solid #aaa;"><span style="color:red;">{{failures}}</span></td></tr>
+        </tbody></table>
+      {{/with}}
+
+</body>
+</html>
