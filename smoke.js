@@ -34,12 +34,15 @@ newman.run({
 
 function send(sub,tracelog){
     var transporter = nodemailer.createTransport({
-		service: "QQex|Gmail",
-		auth: {
-			user: "---发件人邮箱---",
-			pass: "---发件人邮箱密码---"
-		}
-	});
+         service: 'qq', // 使用了内置传输发送邮件 查看支持列表：https://nodemailer.com/smtp/well-known/
+         port: 465, // SMTP 端口
+         secureConnection: true, // 使用了 SSL
+         auth: {
+           user: '',
+           // 这里密码不是qq密码，是你设置的smtp授权码
+           pass: '',
+         }
+	   });
     
     var html = fs.readFileSync(export_file);
     var to = '---收件人地址---';
