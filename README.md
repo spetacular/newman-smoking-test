@@ -9,3 +9,4 @@ npm install nodemailer --save
 ```
 
 最后执行`node smoke.js`即可查看测试结果。
+季滕
